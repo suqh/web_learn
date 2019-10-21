@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>背景位置</title>
+    <style>
+        .bg {
+            width: 800px;
+            height: 500px;
+            background-color: pink;
+            /*背景图片 1.需要加url  2.url里面的地址不要加引号*/
+            background-image: url(../images/l.jpg);
+            /*背景图片不平铺*/
+            background-repeat: no-repeat;
+            /*背景位置*/
+            /*background-position: x坐标 y坐标;*/
+            /*background-position: right top;(右上角)*/
+            /*如果position 后面是精确坐标，那么第一个，肯定是 x 第二的一定是y*/
+            /*background-position: 50px 10px;*/
+            /*以下说明 x 10像素  y 垂直居中的*/
+            /*background-position: 10px center;*/
+            background-position: center 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg">
+        777777777777777777777777777
+    </div>
+</body>
+</html>
