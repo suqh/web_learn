@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分别指定边框</title>
+    <style>
+        div {
+            width: 200px;
+            height: 400px;
+            /*上边框写法*/
+            border-top: 2px solid red;
+            /*左边框写法*/
+            border-left: 2px solid green;
+            /*右边框写法*/
+            border-right: 2px solid blue;
+            /*下边框写法*/
+            border-bottom: 2px solid pink;
+        }
+        input {
+            /*border-top: none;*/
+            /*border-right: none;*/
+            /*border-left: none;*/
+            /*border-bottom: 1px dashed pink;*/
+            /*要实现只有下边框  先四个边框都去掉  先写大的，后写小的*/
+            border: none;
+            border-bottom: 1px dashed red;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    用户名：<input type="text"><br />
+    密码：<input type="text">
+</body>
+</html>
