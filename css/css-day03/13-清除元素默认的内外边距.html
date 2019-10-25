@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>清除元素默认的内外边距</title>
+    <style>
+        /*这是一个神奇的代码 我们以后写css 第一句话*/
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        span {
+            /*上下内外边距没有起作用*/
+            margin: 30px;
+        }
+    </style>
+</head>
+<body>
+    一个问题
+    <p>这又是一个问题</p>
+    <span>尽量只设置左右内外边距，不要设置上下内外边距</span>
+</body>
+</html>

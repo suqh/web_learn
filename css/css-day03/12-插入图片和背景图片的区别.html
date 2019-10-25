@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插入图片和背景图片的区别</title>
+    <style>
+        .pic,.bg {
+            width: 500px;
+            height: 500px;
+            border: 1px solid red;
+            /*padding: 30px;*/
+        }
+        .pic img {
+            margin: 30px;
+        }
+        .bg {
+            background: url(../images/3.jpg) no-repeat;
+            /*背景图片想要移动位置，通过 background-position 移动位置*/
+            background-position: 30px 30px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="pic">
+<!--        插入图片想要移动位置，通过盒模型的padding值-->
+        <img src="../images/3.jpg" alt="">
+    </div>
+    <div class="bg">
+
+    </div>
+</body>
+</html>
