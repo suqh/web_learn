@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>权重叠加</title>
+    <style>
+        /*出现了权重叠加的现象*/
+        /*.nav a  权重 0,0,1,0 + 0,0,0,1 = 0,0,1,1*/
+        .nav a {
+            color: red;
+        }
+        /*想给第一个a标签的字体颜色变为粉色，指定一个 first的类属性 不起作用，因为first的权重小于 .nav a 的权重*/
+        /*first 0,0,1,0*/
+        /*.first {*/
+        /*    color: pink;*/
+        /*}*/
+        .nav .first {
+            color: pink;
+        }
+
+        /*不会逢十进一*/
+        /*0,0,0,5  +*/
+        /*0,0,0,5 =*/
+        /*0,0,0,10*/
+    </style>
+</head>
+<body>
+    <div> 人生四大喜 </div>
+    <div class="nav">
+        <a href="#" class="first">家里没宽带</a>
+        <a href="#">网速不够快</a>
+        <a href="#">手机没流量</a>
+        <a href="#">学校无wifi</a>
+    </div>
+</body>
+</html>

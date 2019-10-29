@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>为什么要浮动</title>
+    <style>
+        div {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .two {
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <!-- 要实现这三个盒子在一行中实现，用inline-block可以实现在一行中排列，
+         但是中间的空隙比较麻烦，或者说就算能去掉，他的兼容性也是极差的，
+         所以就产生了用浮动来实现
+    -->
+    <div></div>
+    <div class="two"></div>
+    <div></div>
+</body>
+</html>
