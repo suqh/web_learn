@@ -21,14 +21,27 @@
             margin: 0 auto;
             background: url(images/nav_bg.jpg) repeat-x;
         }
-        .nav li {
+        .nav ul li {
             /*因为li 让文字竖着显示，所以必须要给 li 添加浮动*/
             float: left;
             list-style: none;
-            line-height: 32px;
         }
-        .nav li a {
+        .nav ul li a {
+            /*a 是行内元素 需要转换*/
+            display: inline-block;
+            width: 80px;
+            height: 32px;
+            /*取消下划线*/
             text-decoration: none;
+            background: url(images/button1.jpg) no-repeat;
+            /*让文字垂直居中*/
+            line-height: 32px;
+            text-align: center;
+            color: #40510a;
+            font-size: 12px;
+        }
+        .nav ul li a:hover {
+            background: url(images/button2.jpg);
         }
     </style>
 </head>
