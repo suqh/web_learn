@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>清除浮动之伪元素清除</title>
+    <style>
+        /*由于父盒子很多情况下，不方便给高度，但是子盒子浮动又不占有位置，最后
+        父级盒子高度为0时，就会影响下面的标准流盒子*/
+
+        /*清除浮动的本质是清除浮动元素脱离标准流造成的影响*/
+
+        /*优点： 没有增加标签，结构更简单*/
+        .clearfix:after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+
+        .clearfix {
+            /* IE6、7 专有   */
+            *zoom: 1;
+        }
+
+        .box {
+            width: 800px;
+            border: 1px solid blue;
+            margin: 0 auto;
+        }
+
+        .damao {
+            float: left;
+            width: 300px;
+            height: 200px;
+            background-color: purple;
+        }
+
+        .ermao {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        .footer {
+            height: 200px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="box clearfix">
+        <div class="damao">大毛</div>
+        <div class="ermao">二毛</div>
+    </div>
+    <div class="footer"></div>
+</body>
+</html>
