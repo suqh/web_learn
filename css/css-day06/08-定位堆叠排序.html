@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定位堆叠排序</title>
+    <style>
+        .box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+        }
+        .xiongda {
+            background-color: red;
+            z-index: 1;
+        }
+        .xionger {
+            background-color: green;
+            left: 50px;
+            top: 50px;
+            /*不能加单位 只有定位的盒子才有 z-index 属性*/
+            z-index: 2;
+        }
+        .qiangge {
+            background-color: blue;
+            left: 100px;
+            top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box xiongda">熊大</div>
+    <div class="box xionger">熊二</div>
+    <div class="box qiangge">光头强</div>
+</body>
+</html>

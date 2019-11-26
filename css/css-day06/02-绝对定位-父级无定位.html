@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绝对定位-父级无定位</title>
+    <style>
+        /*绝对定位脱离标准流*/
+        .father {
+            width: 500px;
+            height: 500px;
+            background-color: skyblue;
+        }
+        /*子元素绝对定位没有父元素，或者有父元素但父元素没有定位（相对、绝对、固定定位），则以浏览器为标准来进行对齐*/
+        .son {
+            position: absolute;
+            /*top: 10px;*/
+            /*left: 10px;*/
+            /*top: 100px;*/
+            /*right: 200px;*/
+            left: 30px;
+            bottom: 10px;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+</body>
+</html>
