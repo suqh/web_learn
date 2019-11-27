@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定位的特殊特性</title>
+    <style>
+        /*行内元素 添加了定位，可以直接设置宽高，都是有效的*/
+        span {
+            position: absolute;
+            top: 300px;
+            width: 200px;
+            height: 150px;
+            background-color: pink;
+        }
+        /*块元素 添加了定位，宽度则为默认的内容宽度*/
+        div {
+            position: absolute;
+            /*top: 10px;*/
+            /*width: 10px;*/
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <span>123</span>
+
+    <div>abcd</div>
+</body>
+</html>

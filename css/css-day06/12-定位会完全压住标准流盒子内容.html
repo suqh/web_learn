@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定位会完全压住标准流盒子内容</title>
+    <style>
+        .box {
+            /*1、浮动的元素不会压住下面标准流的文字（因为浮动最初是为了做文字环绕效果的，文字会围绕浮动元素）*/
+            /*float: left;*/
+            /*2、绝对定位（固定定位） 会压住下面标准流所有内容*/
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <p>阁下何不同风起，扶摇直上九万里</p>
+</body>
+</html>
