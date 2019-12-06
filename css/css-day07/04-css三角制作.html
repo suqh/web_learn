@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css三角制作</title>
+    <style>
+        .box1 {
+            width: 0;
+            height: 0;
+            /*border: 10px solid pink;*/
+            border-top: 10px solid pink;
+            border-right: 10px solid red;
+            border-bottom: 10px solid blue;
+            border-left: 10px solid green;
+        }
+        .box2 {
+            width: 0;
+            height: 0;
+
+            /*以下这两个属性设置，是为了兼容低版本的浏览器，高版本的不需要*/
+            line-height: 0;
+            font-size: 0;
+
+            border: 50px solid transparent;
+            border-right-color: pink;
+            margin: 100px auto;
+        }
+        .jd {
+            position: relative;
+            width: 120px;
+            height: 249px;
+            background-color: pink;
+        }
+        .jd span {
+            position: absolute;
+            right: 15px;
+            top: -10px;
+            width: 0;
+            height: 0;
+            line-height: 0;
+            font-size: 0;
+            border: 5px solid transparent;
+            border-bottom-color: pink;
+        }
+        .xiaomi {
+            position: relative;
+            width: 120px;
+            height: 249px;
+            background-color: blue;
+            margin: 100px;
+        }
+        .xiaomi span {
+            position: absolute;
+            left: 120px;
+            top: 10px;
+            width: 0;
+            height: 0;
+            line-height: 0;
+            font-size: 0;
+            border: 5px solid transparent;
+            border-left-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="jd">
+        <span></span>
+    </div>
+    <div class="xiaomi">
+        <span></span>
+    </div>
+</body>
+</html>

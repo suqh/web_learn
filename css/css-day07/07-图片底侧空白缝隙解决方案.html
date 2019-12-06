@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片底侧空白缝隙解决方案</title>
+    <style>
+        div {
+            border: 1px solid red;
+        }
+        /* 方式一：图片默认跟基线对齐，修改成底线就不会有空白间隙*/
+        /*方式二：将图片改成块级元素*/
+        img {
+            display: block;
+            /*vertical-align: bottom;*/
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="images/ldh.jpg" alt="">
+    </div>
+</body>
+</html>
