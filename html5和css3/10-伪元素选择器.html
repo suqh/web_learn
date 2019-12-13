@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>伪元素选择器</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        /*伪元素属于 行内元素   必须写content*/
+        div::before {
+            /*这个content是必须要写的*/
+            display: inline-block;
+            content: '我';
+            width: 30px;
+            height: 40px;
+            background-color: purple;
+        }
+        div::after {
+            content: '小猪佩奇';
+        }
+    </style>
+</head>
+<body>
+    <div>
+        是
+    </div>
+</body>
+</html>
