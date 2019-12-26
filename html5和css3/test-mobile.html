@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mobile</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        ul {
+            /* 取消无序列表前面小圆点 */
+            list-style: none;
+        }
+        /* 让斜体不倾斜 */
+        em {
+            font-style: normal;
+        }
+        a {
+            text-decoration: none;
+        }
+        .goods {
+            position: relative;
+            float: left;
+            width: 288px;
+            height: 458px;
+        }
+        .goods_title {
+            font-size: 14px;
+            color: #666;
+            font-weight: 400;
+            padding: 10px;
+        }
+        .goods_price {
+            padding: 0 10px;
+        }
+        .goods_price em {
+            font-size: 22px;
+            color: #E60012;
+        }
+        .goods_price del {
+            font-weight: 700;
+            color: #A4A4A4;
+        }
+        .goods_progress {
+            padding: 0 10px;
+            font-size: 12px;
+        }
+        .goods_progress .bar {
+            display: inline-block;
+            width: 132px;
+            height: 10px;
+            border: 1px solid red;
+            border-radius: 5px;
+            vertical-align: middle;
+        }
+        .goods_progress .bar .bar_in {
+            width: 87%;
+            height: 10px;
+            background-color: #f24349;
+            transition: all .5s;
+        }
+        .goods_progress em,
+        .goods_progress i {
+            color: #f24349;
+        }
+        .goods .goods_buy {
+            position: absolute;
+            width: 100%;
+            height: 50px;
+            background-color: #b1191a;
+            margin-top: 5px;
+            line-height: 50px;
+            text-align: center;
+            color: #fff;
+            font-size: 20px;
+        }
+        .bar:hover .bar_in {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li class="goods">
+            <img src="images/mobile.jpg" alt="">
+            <h5 class="goods_title">Apple苹果iPhone 6s Plus（A1699）32G 金色 移动联通电信4G手机</h5>
+            <p class="goods_price"><em>¥6088</em> <del>¥6988</del></p>
+            <div class="goods_progress">
+                已售
+                <i>87%</i>
+                <div class="bar">
+                    <div class="bar_in"></div>
+                </div>
+                剩余<em>29</em>件
+            </div>
+            <a href="#" class="goods_buy">立即抢购</a>
+        </li>
+    </ul>
+</body>
+</html>
