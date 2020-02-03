@@ -74,3 +74,4 @@ fabric.properties
 /.idea/vcs.xml
 /.idea/web_learn.iml
 /.idea/encodings.xml
+.DS_Store
