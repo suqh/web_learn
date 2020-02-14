@@ -81,7 +81,7 @@ div {
 }
 
 
-/* li加了 line-height 和 text-aling 问什么不居中对齐？
+/* li加了 line-height 和 text-aling 为什么不居中对齐？
 因为图片默认和文字的基线对齐  只需要添加 vertical-align : middle*/
 
 .app ul li:nth-child(2) img {

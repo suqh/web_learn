@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: flex;
+            width: 800px;
+            height: 300px;
+            background-color: pink;
+            /* 默认的主轴 是 x 轴  row */
+            flex-direction: row;
+            /* justify-content:  是设置主轴上子元素的排列方式 */
+            /* 是默认的排列方式 默认从头部开始 */
+            /* justify-content: flex-start;*/
+            /* 从尾部开始排列 */
+            /* justify-content: flex-end; */
+            /* 子元素在主轴居中对齐 */
+            /* justify-content: center; */
+            /* 除掉盒子本身的空间，然后各个盒子平分剩余空间 */
+            /* justify-content: space-around; */
+            /* 先两边贴边  再平分剩余空间 */
+            justify-content: space-between;
+        }
+        
+        div span {
+            width: 150px;
+            height: 100px;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+    </div>
+</body>
+
+</html>
