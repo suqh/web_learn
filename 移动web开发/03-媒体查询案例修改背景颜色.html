@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 1.媒体查询一般按照从大到小或者从小到大的顺序来   从小到大代码会比较简洁 代码样式的层叠性  */
+        /* 2.小于 540px 页面的背景颜色变为蓝色 */
+        
+        @media screen and (max-width: 539px) {
+            body {
+                background-color: blue;
+            }
+        }
+        /* 3.540 ~ 970 我们的页面颜色改为绿色 */
+        /* @media screen and (min-width: 540px) and (max-width: 969px) {
+            body {
+                background-color: green;
+            }
+        } */
+        
+        @media screen and (min-width: 540px) {
+            body {
+                background-color: green;
+            }
+        }
+        /* 4.大于等于 970 我们页面的颜色改为红色 */
+        
+        @media screen and (min-width: 970px) {
+            body {
+                background-color: red;
+            }
+        }
+        /* 5.screen 还有 and 必须带上不能省略的 */
+        /* 6. 我们的数字后面必须跟单位  970排序 这个 px 不能省略 */
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>
