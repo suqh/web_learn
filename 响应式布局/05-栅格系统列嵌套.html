@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <!-- 一定不要忘记引入bootstrap 的样式文件 -->
+    <link rel="stylesheet" href="bootstrap使用/bootstrap/css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+        /* 亲一级的 div 相当于亲儿子 */
+        
+        .row>div {
+            height: 50px;
+            border: 1px solid #ccdc;
+            background-color: skyblue;
+            /* 给 margin 会被挤掉下来 */
+            /* margin: 0 10px; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <!-- 我们列嵌套最好加1个行  类名为row 这样可以取消父元素的padding值 而且高度自动和父级一样高-->
+                <div class="row">
+                    <div class="col-md-4">a</div>
+                    <div class="col-md-8">b</div>
+                </div>
+            </div>
+            <div class="col-md-4">2</div>
+            <div class="col-md-4">3</div>
+        </div>
+    </div>
+</body>
+
+</html>
