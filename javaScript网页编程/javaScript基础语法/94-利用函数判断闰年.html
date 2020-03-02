@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 利用函数判断闰年
+        function isRunYear(year) {
+            // 如果是闰年我们返回true 否则 返回false
+            var flag = false;
+            if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+                flag = true;
+            }
+            return flag;
+        }
+        var runYear = isRunYear(2001);
+        console.log(runYear);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
