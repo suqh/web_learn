@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 字符串的不可变性
+        var str = 'andy';
+        console.log(str);
+        str = 'red';
+        console.log(str);
+        // 因为字符串的不可变 所以不要大量的凭借字符串
+        var str = '';
+        for (var i = 0; i <= 100; i++) {
+            str += i;
+        }
+        console.log(str);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

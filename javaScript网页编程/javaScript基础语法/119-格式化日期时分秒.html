@@ -12,7 +12,7 @@
         console.log(date.getMinutes()); // 分
         console.log(date.getSeconds()); // 秒
         // 要求封装一个函数返回当前的时分秒 格式 08:08:08
-        function getTime() {
+        function getTimer() {
             var time = new Date();
             var h = time.getHours();
             h = h < 10 ? '0' + h : h;
@@ -22,7 +22,7 @@
             s = s < 10 ? '0' + s : s;
             return h + ':' + m + ':' + s;
         }
-        console.log(getTime());
+        console.log(getTimer());
     </script>
 </head>
 
