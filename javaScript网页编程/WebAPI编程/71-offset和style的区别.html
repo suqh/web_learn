@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" style="width: 120px;"></div>
+    <script>
+        // offset 与 style 的区别
+        // 1. offset 可以得到任意样式表中的值  style 只能得到行内样式表中的样式值
+        // 2.offset 系列获得的数值是没有单位的  style.width 获得的是带有单位的字符串
+        // 3. offsetWidth 包含 padding+border+width  style.width 获得不包含padding 和 border的值
+        // 4. offsetWidth 等属性是只读属性，只能获取不能赋值  style 是可读写属性 可以获取也可以赋值
+        // 所以 我们想要获取元素大小位置，用offset更合适
+        // 所以 我们想要给元素更改值，则需要用style改变
+        var box = document.querySelector('.box');
+        console.log(box.offsetWidth);
+        console.log(box.style.width);
+        // box.offsetWidth = '300px';
+        box.style.width = '300px';
+    </script>
+</body>
+
+</html>
