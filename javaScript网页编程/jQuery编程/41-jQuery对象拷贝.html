@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function() {
+            var targetObj = {};
+            var obj = {
+                id: 1,
+                name: "andy"
+            };
+            // $.extend(target, obj);
+            $.extend(targetObj, obj);
+            console.log(targetObj);
+
+            var targetObj1 = {
+                id: 0
+            };
+            var obj1 = {
+                id: 1,
+                name: "andy"
+            };
+            $.extend(targetObj1, obj1);
+            console.log(targetObj1); // 会覆盖targetObj1 里面原来的数据
+
+            var targetObj2 = {
+                id: 0,
+                msg: {
+                    sex: "男"
+                }
+            };
+            var obj2 = {
+                id: 1,
+                name: "andy",
+                msg: {
+                    age: 18
+                }
+            };
+            $.extend(targetObj2, obj2);
+            console.log(targetObj2); // 会覆盖targetObj2 里面原来的数据
+            // 1. 浅拷贝把原来对象里面的复杂数据类型地址拷贝给目标对象
+            targetObj2.msg.age = 20;
+            console.log(targetObj2);
+            console.log(obj2);
+            // 2. 深拷贝把里面的数据完全复制一份给目标对象 如果里面有不冲突的属性 会合并到一起
+            var targetObj3 = {
+                id: 0,
+                msg: {
+                    sex: "男"
+                }
+            };
+            var obj3 = {
+                id: 1,
+                name: "andy",
+                msg: {
+                    age: 18
+                }
+            };
+            $.extend(true, targetObj3, obj3);
+            targetObj3.msg.age = 20;
+            console.log(targetObj3); // msg: {sex: "男", age: 20}
+            console.log(obj3); // msg: {age: 18}
+        })
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
