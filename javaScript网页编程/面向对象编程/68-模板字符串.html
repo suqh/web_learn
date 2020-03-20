@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let name = `张三`;
+        let sayHello = `Hello, 我的名字叫${name}`;
+        console.log(sayHello);
+
+        let result = {
+            name: "zhangsn",
+            age: 20
+        };
+
+        let html = `
+            <div>
+                <span>${result.name}</span>    
+                <span>${result.age}</span>    
+            </div>
+        `;
+        console.log(html);
+
+        const fn = () => {
+            return "我是fn函数";
+        }
+        let html2 = `
+            我是模板字符串 ${fn()}
+        `;
+        console.log(html2);
+    </script>
+</body>
+
+</html>
