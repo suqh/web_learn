@@ -1,0 +1,1 @@
+console.log("find文件夹下的mian.js被执行了");

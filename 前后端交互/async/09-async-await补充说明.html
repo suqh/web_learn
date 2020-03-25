@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        async function p1() {
+            return "p1";
+        }
+        async function p2() {
+            return "p2";
+        }
+        async function p3() {
+            return "p3";
+        }
+        async function p4() {
+            return "p4";
+        }
+        // p1().then(function(data) {
+        //     console.log(data);
+
+        // });
+        // p2().then(function(data) {
+        //     console.log(data);
+
+        // });
+        // p3().then(function(data) {
+        //     console.log(data);
+
+        // });
+        // p4().then(function(data) {
+        //     console.log(data);
+
+        // });
+
+        // await 是跟 async 相互配合使用，用于在异步函数中使用
+        async function fun() {
+            var a = await p1();
+            var b = await p2();
+            var c = await p3();
+            var d = await p4();
+            console.log(a);
+            console.log(b);
+            console.log(c);
+            console.log(d);
+
+        }
+
+        fun();
+    </script>
+</body>
+
+</html>

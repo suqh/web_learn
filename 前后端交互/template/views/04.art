@@ -1,0 +1,9 @@
+<!-- 标准语法包含 -->
+{{ include "./common/header.art" }}
+<div> {{ msg }}</div>
+{{ include "./common/footer.art" }}
+
+<!-- 原始语法包含 -->
+<% include("./common/header.art") %>
+    <div> {{ msg }}</div>>
+    <% include("./common/footer.art") %>

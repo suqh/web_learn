@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // throw 是用来抛出一个自定义的异常错误，
+        // throw后边的代码不会被执行
+        // 这个异常的错误，会传递到catch语句中
+        async function fn(a) {
+            if (a != 10) {
+                throw "变量值错误，不等于10";
+                console.log(1);
+
+            } else {
+                return "变量值等于10"
+            }
+            console.log(2);
+
+        }
+
+        // 这样子拿到的返回值是promise对象
+        // fn(10);
+        // var a = fn(10);
+        // console.log(a);
+
+
+        // then 方法为了获取promise对象中的值
+        fn(11).then(function(data) {
+                console.log(data);
+
+            })
+            // 可以打印throw中的值
+            .catch(function(err) {
+                console.log(err);
+
+            });
+
+        // then(参数1，参数2)
+        // 参数1： 用于promise对象成功的回调函数
+        // 参数2： 用于promise对象失败的回调函数
+        fn(11).then(function(data) {
+                console.log(data);
+
+            },
+            // 这种方式也可以打印throw中的值 
+            function(err) {
+                console.log(err);
+
+            })
+    </script>
+</body>
+
+</html>
