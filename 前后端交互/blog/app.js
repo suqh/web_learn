@@ -9,6 +9,18 @@ const bodyParser = require("body-parser");
 // 导入express-session
 const session = require("express-session");
 
+// 导入art-template模板引擎
+const template = require("art-template");
+
+// 导入dateformat第三方模块
+const dateFormat = require("dateformat");
+
+// 导入morgan第三方模块
+const morgan = require("morgan");
+
+// 导入config模块
+const config = require("config");
+
 // 创建网站服务器
 const app = express();
 
@@ -35,8 +47,25 @@ app.set("view engine", "art");
 // 当渲染后缀为art模板时，所使用的的模板引擎是什么
 app.engine("art", require("express-art-template"));
 
+// 向模压内部导入dataFormat变量
+template.defaults.imports.dateFormat = dateFormat;
+
 // 开放静态资源文件
 app.use(express.static(path.join(__dirname, "public")));
+
+console.log(config.get("title"));
+
+
+// 获取系统环境变量 返回值是对象
+if (process.env.NODE_ENV == 'development') {
+    // 当前是开发环境
+    console.log("当前是开发环境");
+    // 在开发环境中 将客户端发送到服务器端的请求信息打印到控制台中
+    app.use(morgan("dev"));
+} else {
+    // 当前是生产环境
+    console.log("当前是生产环境");
+}
 
 // /admin 匹配的是以 /admin 开头 并不是完全匹配
 // 拦截请求 判断用户登录状态
