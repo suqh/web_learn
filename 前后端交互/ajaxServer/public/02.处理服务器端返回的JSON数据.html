@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.创建ajax对象
+        var xhr = new XMLHttpRequest();
+        // 2. 告诉ajax对象要向哪发送请求，以什么方式发送请求
+        // 1）请求方式 2）请求地址
+        xhr.open("get", "http://localhost:3000/responseData");
+        // 3.发送请求
+        xhr.send();
+        // 4. 获取服务器端响应到客户端的相应数据
+        xhr.onload = function() {
+            console.log(xhr.responseText);
+            console.log(typeof xhr.responseText);
+            var responseText = JSON.parse(xhr.responseText); // 将JSON字符串转换为JSON对象
+            console.log(responseText);
+            var str = '<h2>' + responseText.name + '</h2>';
+            document.body.innerHTML = str;
+        }
+    </script>
+</body>
+
+</html>
