@@ -6,6 +6,9 @@ const bodyParser = require("body-parser");
 const formidable = require("formidable");
 
 const fs = require("fs");
+
+// 导入mongoose模块
+const mongoose = require('mongoose');
 // 创建web服务器
 const app = express();
 
@@ -13,6 +16,9 @@ const app = express();
 // app.use(bodyParser.urlencoded());
 // 接收json参数
 app.use(bodyParser.json());
+
+// 数据库连接
+mongoose.connect('mongodb://suqh:suqh@localhost:27017/todo', { useNewUrlParser: true })
 
 
 // 静态资源访问服务功能
@@ -215,6 +221,62 @@ app.post("/upload", (req, res) => {
             path: files.attrName.path.split("public")[1]
         });
     })
+});
+
+app.get("/base", (req, res) => {
+    res.send({ name: "zhangsan", age: 20 });
+});
+
+app.post("/base", (req, res) => {
+    res.status(400).send({ name: "zhangsan", age: 20 });
+});
+
+app.post("/user", (req, res) => {
+    res.send({ name: "zhangsan", age: 20 });
+});
+
+app.get("/jsonp", (req, res) => {
+    // res.jsonp({ name: "zhangsan", age: 20 });
+    var cb = req.query.cb;
+    const data = cb + "({ name: 'zhangsan', age: 20 })";
+    res.send(data);
+});
+
+// 导入todo路由案例
+const todoRouter = require('./route/todo');
+// 当客户端的请求路径以/todo开头时
+app.use('/todo', todoRouter);
+
+
+// 获取用户列表信息
+app.get("/users", (req, res) => {
+    res.send("当前是获取用户列表信息的路由");
+});
+
+// 获取某一个用户具体信息的路由
+app.get("/users/:id", (req, res) => {
+    // 获取客户端传递过来的用户id
+    const id = req.params.id;
+    res.send(`当前我们是在获取id为${id}用户信息`);
+});
+
+// 删除某一个用户
+app.delete("/users/:id", (req, res) => {
+    // 获取客户端传递过来的用户id
+    const id = req.params.id;
+    res.send(`当前我们是在删除id为${id}用户信息`);
+});
+
+// 修改某一个用户的信息
+app.put("/users/:id", (req, res) => {
+    // 获取客户端传递过来的用户id
+    const id = req.params.id;
+    res.send(`当前我们是在修改id为${id}用户信息`);
+});
+
+app.get("/xml", (req, res) => {
+    res.header("content-type", "text/xml");
+    res.send("<message><title>消息标题</title><content>消息内容</content></message>");
 })
 
 // 监听端口
