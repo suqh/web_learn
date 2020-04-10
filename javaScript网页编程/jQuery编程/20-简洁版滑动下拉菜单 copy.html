@@ -145,7 +145,7 @@
             // });
             // 2. 事件切换 hover  如果只写一个函数，那么鼠标经过和鼠标离开都会触发这个函数
             $(".nav>li").hover(function() {
-                $(this).children("ul").slideToggle();
+                $(this).children("ul").stop().slideToggle();
             });
         })
     </script>
