@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <a v-bind:href="url">百度</a>
+        <a :href="url">百度1</a>
+        <button v-on:click="handle">切换</button>
+    </div>
+    <script src="../js/vue.js "></script>
+    <script>
+        // 属性绑定
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                url: 'http://www.baidu.com'
+            },
+            methods: {
+                handle: function() {
+                    // 修改url地址
+                    this.url = 'http://itcast.cn';
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
