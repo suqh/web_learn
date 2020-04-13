@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="fname">
+        <button @click="add">添加</button>
+        <button @click="del">删除</button>
+        <button @click="change">替换</button>
+        <ul>
+            <li :key="item.id" v-for="(item,index) in list">{{item}}</li>
+        </ul>
+    </div>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <script type="text/javascript">
+        // Vue数组操作
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                list: ['apple', 'orange', 'banana'],
+                fname: ''
+            },
+            methods: {
+                add: function() {
+                    this.list.push(this.fname);
+                },
+                del: function() {
+                    this.list.pop();
+                },
+                change: function() {
+                    this.list = this.list.slice(0, 2);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

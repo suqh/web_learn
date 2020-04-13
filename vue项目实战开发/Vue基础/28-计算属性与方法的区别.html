@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>{{msg}}</div>
+        <div>{{reverseString}}</div>
+        <div>{{reverseString}}</div>
+        <div>{{reverseMessage()}}</div>
+        <div>{{reverseMessage()}}</div>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        // 计算属性
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                msg: 'nihao',
+                num: 100
+            },
+            // 方法调用需要添加括号
+            methods: {
+                reverseMessage: function() {
+                    console.log('reverseMessage');
+                    return this.msg.split('').reverse().join('');
+                }
+            },
+            // 计算属性调用不需要加小括号() 直接调用
+            computed: {
+                reverseString: function() {
+                    console.log('computed');
+                    // return this.msg.split('').reverse().join('');
+                    var total = 0;
+                    for (var i = 0; i <= this.num; i++) {
+                        total += i;
+                    }
+                    return total;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

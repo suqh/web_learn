@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab ul {
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .tab ul li {
+            box-sizing: border-box;
+            padding: 0;
+            float: left;
+            width: 100px;
+            height: 45px;
+            line-height: 45px;
+            list-style: none;
+            text-align: center;
+            border-top: 1px solid blue;
+            border-right: 1px solid blue;
+            cursor: pointer
+        }
+        
+        .tab ul li:first-child {
+            border-left: 1px solid blue;
+        }
+        
+        .tab ul li.active {
+            background-color: orange;
+        }
+        
+        .tab div {
+            width: 500px;
+            height: 300px;
+            display: none;
+            text-align: center;
+            font-size: 30px;
+            line-height: 300px;
+            border: 1px solid blue;
+            border-top: 0px;
+        }
+        
+        .tab div.current {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="tab">
+            <ul>
+                <li v-on:click="change(index)" :class="currentIndex == index?'active':''" :key="item.id" v-for="(item,index) in list">{{item.title}}</li>
+            </ul>
+            <div :class="currentIndex == index?'current':''" :key="item.id" v-for="(item,index) in list">
+                <img :src="item.path">
+            </div>
+        </div>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                currentIndex: 0, //选项卡当前的索引
+                list: [{
+                    id: 1,
+                    title: 'apple',
+                    path: '../image/apple.png'
+                }, {
+                    id: 2,
+                    title: 'orange',
+                    path: '../image/orange.png'
+                }, {
+                    id: 3,
+                    title: 'lemon',
+                    path: '../image/lemon.png'
+                }]
+            },
+            methods: {
+                change: function(index) {
+                    // 在这里实现选项卡切换操作：本质就是操作类名
+                    // 如何操作类名？就是通过currentIndex
+                    this.currentIndex = index;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

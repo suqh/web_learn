@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>{{msg}}</div>
+        <div>{{reverseString}}</div>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        // 计算属性
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                msg: 'nihao'
+            },
+            computed: {
+                reverseString: function() {
+                    return this.msg.split('').reverse().join('');
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

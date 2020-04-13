@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-color="msg">
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        // 自定义指令-带参数
+        Vue.directive('color', {
+            bind: function(el, binding) {
+                // 根据指令的参数设置背景色
+                el.style.backgroundColor = binding.value.color;
+                console.log(binding.value.color);
+
+            }
+        });
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                msg: {
+                    color: 'blue'
+                }
+            },
+            methods: {
+                handle: function() {
+
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
