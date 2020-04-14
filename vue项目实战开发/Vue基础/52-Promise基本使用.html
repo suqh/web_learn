@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Promise基本使用
+        console.log(typeof Promise); // function
+        console.dir(Promise);
+
+        var p = new Promise(function(resolve, reject) {
+            // 这里用于实现异步任务
+            setTimeout(function() {
+                var flag = false;
+                if (flag) {
+                    // 正常情况
+                    resolve('hello');
+                } else {
+                    // 异常情况
+                    reject('出错了');
+                }
+            }, 100);
+        });
+        p.then(function(data) {
+            console.log(data);
+
+        }, function(info) {
+            console.log(info);
+
+        })
+    </script>
+</body>
+
+</html>
