@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 导入vue文件 -->
+    <script src="../lib/vue_2.5.22.js"></script>
+</head>
+
+<body>
+    <!-- 被 vm 是所控制的区域 -->
+    <div id="app"></div>
+    <script>
+        // 创建 vm 实例对象
+        const vm = new Vue({
+            // 指定控制的区域
+            el: '#app',
+            data: {}
+        })
+    </script>
+</body>
+
+</html>
