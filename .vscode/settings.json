@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "*.art": "html"
+        "*.art": "html",
+        "*.vue":"vue"
         }
 }
