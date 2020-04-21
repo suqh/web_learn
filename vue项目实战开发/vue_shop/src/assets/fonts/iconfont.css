@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('icomoon.eot?xhxtuf');
-  src:  url('icomoon.eot?xhxtuf#iefix') format('embedded-opentype'),
-    url('icomoon.ttf?xhxtuf') format('truetype'),
-    url('icomoon.woff?xhxtuf') format('woff'),
-    url('icomoon.svg?xhxtuf#icomoon') format('svg');
+  src:  url('icomoon.eot?wk75ms');
+  src:  url('icomoon.eot?wk75ms#iefix') format('embedded-opentype'),
+    url('icomoon.ttf?wk75ms') format('truetype'),
+    url('icomoon.woff?wk75ms') format('woff'),
+    url('icomoon.svg?wk75ms#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -54,4 +54,28 @@
 }
 .icon-file-word:before {
   content: "\eae1";
+}
+.icon-cart1:before {
+  content: "\e93b";
+}
+.icon-bell:before {
+  content: "\e951";
+}
+.icon-calendar:before {
+  content: "\e953";
+}
+.icon-database:before {
+  content: "\e964";
+}
+.icon-users:before {
+  content: "\e972";
+}
+.icon-stats-bars:before {
+  content: "\e99c";
+}
+.icon-stats-bars2:before {
+  content: "\e99d";
+}
+.icon-gift:before {
+  content: "\e99f";
 }
