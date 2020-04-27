@@ -16,7 +16,7 @@
                 </el-col>
             </el-row>
             <!-- 角色列表区域 -->
-            <el-table :data="rolelist" stripe border>
+            <el-table :data="rolelist" stripe border :row-key="getRowKey(id)">
                 <!-- 展开列 -->
                 <el-table-column type="expand">
                     <template slot-scope="scope">
@@ -35,7 +35,7 @@
                                         <i class="el-icon-caret-right"></i>
                                     </el-col>
                                     <el-col :span="18">
-                                        <el-tag closable type="warning" v-for="(item3, i3) in item2.children" :key="item3.id" @close="removeRightById(scope.row, item3.id)">
+                                        <el-tag closable type="warning" v-for="item3 in item2.children" :key="item3.id" @close="removeRightById(scope.row, item3.id)">
                                             {{ item3.authName }}
                                         </el-tag>
                                     </el-col>
@@ -169,6 +169,9 @@ export default {
             this.$message.success('分配权限成功!')
             this.getRolesList()
             this.setRightDialogVisible = false
+        },
+        getRowKey (id) {
+            return Math.random() + id
         }
     }
 }
