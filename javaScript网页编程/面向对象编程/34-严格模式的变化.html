@@ -18,9 +18,8 @@
         // 2.不能随意删除已经声明好 的变量
         // delete num;
         function fn() {
-            // 3.严格模式心啊全局作用域中函数中的this指向的是 undefined
+            // 3.严格模式的全局作用域中函数中的this指向的是 undefined
             console.log(this); // undefined
-
         }
         fn();
         // 4. 严格模式下，如果 构造函数不加 new 调用 ，this 指向的是 undefined 如果给他赋值 则会报错

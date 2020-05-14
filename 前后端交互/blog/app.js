@@ -47,7 +47,7 @@ app.set("view engine", "art");
 // 当渲染后缀为art模板时，所使用的的模板引擎是什么
 app.engine("art", require("express-art-template"));
 
-// 向模压内部导入dataFormat变量
+// 向模版内部导入dataFormat变量
 template.defaults.imports.dateFormat = dateFormat;
 
 // 开放静态资源文件
@@ -94,5 +94,5 @@ app.use((err, req, res, next) => {
 })
 
 // 监听端口
-app.listen(80);
+app.listen(8081);
 console.log("网站服务器启动成功，请访问localhost");

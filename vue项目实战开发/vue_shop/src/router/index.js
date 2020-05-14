@@ -29,6 +29,8 @@ const Order = () => import(/* webpackChunkName: "order_report" */ '../components
 // import Report from '../components/report/Report.vue'
 const Report = () => import(/* webpackChunkName: "order_report" */ '../components/report/Report.vue')
 
+const Edit = () => import(/* webpackChunkName: "cate_param" */ '../components/goods/Edit.vue')
+
 Vue.use(VueRouter)
 const router = new VueRouter({
   routes: [
@@ -47,6 +49,7 @@ const router = new VueRouter({
         { path: '/params', component: Params },
         { path: '/goods', component: List },
         { path: '/goods/add', component: Add },
+        { path: '/goods/edit/:id', component: Edit, props: true },
         { path: '/orders', component: Order },
         { path: '/reports', component: Report }
       ]
