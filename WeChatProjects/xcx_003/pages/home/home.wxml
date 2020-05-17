@@ -1,0 +1,22 @@
+<!--pages/home/home.wxml-->
+<text>pages/home/home.wxml</text>
+
+<view id="item-{{id}}"> {{info}}</view>
+<view>{{flag ? '条件为真': '条件为假'}}</view>
+
+<button bindtap='btnTapHandler'>Click me!</button>
+<input bindinput='iptHandler' value="{{info}}"></input>
+<button type="primary" bindtap='btnTapHandler2' data-info="www" data-message="okok">按钮</button>
+
+<view>{{foo.msg}}</view>
+
+<view>{{tools.msg}}</view>
+<view>{{tools.bar(tools.FOO)}}</view>
+
+<wxs src="../tools.wxs" module="tools" />
+<wxs module="foo">
+  var some_msg = 'hello world.'
+  module.exports = {
+    msg: some_msg
+  }
+</wxs>

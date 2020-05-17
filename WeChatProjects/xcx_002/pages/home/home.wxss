@@ -1,0 +1,48 @@
+/* pages/home/home.wxss */
+@import '../../assets/css/common.wxss';
+
+.hc1 {
+  background-color: pink;
+}
+
+.hc2 {
+  background-color: skyblue;
+}
+
+.fs {
+  font-size: 12px;
+}
+
+#v1 {
+  background-color: skyblue;
+}
+
+.v2 {
+  background-color: red;
+}
+
+.v2::before {
+  content: "=====";
+}
+
+.v2::after {
+  content: "++++";
+}
+
+/* 伪类选择器 */
+
+
+[data-color="pink"] {
+  background-color: pink;
+}
+
+
+.vv1 {
+  width: 375rpx;
+  height: 375rpx;
+  background-color: red;
+}
+
+input {
+  border-color: red;
+}

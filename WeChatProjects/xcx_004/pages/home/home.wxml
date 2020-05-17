@@ -1,0 +1,9 @@
+<!--pages/home/home.wxml-->
+<text>pages/home/home.wxml</text>
+<navigator url="/pages/info/info?name=zs&age=20">导航到info页面</navigator>
+
+<button type="primary" bindtap="btnHandler">通过编程式导航跳转到info</button>
+
+<button bindtap="getInfo">发起get请求</button>
+
+<button bindtap="postInfo" type="warn"> 发起post请求</button>

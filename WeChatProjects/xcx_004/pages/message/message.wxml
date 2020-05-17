@@ -1,0 +1,9 @@
+<button type="warn" size="mini" bindtap="changeCountVal">修改message页面中count的值 {{count}}</button>
+
+<view>======================================</view>
+
+<custom-test bind:myevent="getSonCount" prop-count="{{count}}" class="customA" id="cA">
+  <view>这是通过插槽渲染的view标签</view>
+  <view slot="before">这个view会插入到before插槽中</view>
+  <view slot="after">这个view会插入到after插槽中</view>
+</custom-test>

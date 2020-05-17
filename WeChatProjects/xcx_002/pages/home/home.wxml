@@ -1,0 +1,73 @@
+<!--pages/home/home.wxml-->
+<view>--------------text-------------</view>
+
+<text selectable>这是自己的Home首页</text>
+<view>
+  <text space="ensp">1    1</text>
+</view>
+<view>
+  <text space="emsp">2    2</text>
+</view>
+<view>
+  <text space="nbsp" style="font-size: 40px">3    3</text>
+</view>
+<view>
+  <text space="nbsp">4    4</text>
+</view>
+<text decode>
+  &nbsp; &lt; &gt; &amp;  &apos;  &ensp;  &emsp;
+</text>
+
+<view>-------------view--------------</view>
+
+
+<view style="width: 400px; height: 400px; border: 1px solid red;" hover-class="hc2">
+  <view hover-stop-propagation hover-class="hc1" hover-start-time="2000" hover-stay-time="3000" style="width: 200px; height: 200px; border: 1px solid green;">1234567</view>
+</view>
+
+
+<view>-------------button--------------</view>
+
+<button>默认的按钮</button>
+<button size="mini" type="primary">默认的按钮</button>
+<button size="mini" type="warn">默认的按钮</button>
+<button size="mini" type="warn" plain>默认的按钮</button>
+<button size="mini" type="primary" disabled>默认的按钮</button>
+<button size="mini" type="primary" loading>默认的按钮</button>
+
+
+<view>-------------input--------------</view>
+
+<input value="123" password></input>
+<input placeholder="请输入内容" disabled></input>
+
+
+<view>-------------image--------------</view>
+
+<image src="/assets/images/5.jpg"></image>
+<!-- image 组件默认宽度300px  高度225px -->
+<image></image>
+<image src="https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0?wx_fmt=png"></image>
+
+
+
+<view>-------------选择器--------------</view>
+<view id="v1">11111111</view>
+<view class="v2">11111111</view>
+<view class="fs">11111111</view>
+<!-- 微信小程序中 属性选择器以 data-* 开头 -->
+<view data-color="pink">11111111</view>
+<view class="fs">11111111</view>
+<view class="fs">11111111</view>
+
+
+<view>------------绘制占屏幕一半的盒子---------</view>
+<view class="vv1">
+  使用rpx绘制占屏幕宽度一半的盒子
+</view>
+
+<view>------------全局样式与局部样式---------</view>
+<view>
+  <input></input>
+  <input></input>
+</view>

@@ -1,0 +1,6 @@
+/* pages/main/main.wxss */
+.box {
+  border: 1rpx solid #ccc;
+  margin: 10rpx;
+  height: 150rpx;
+}

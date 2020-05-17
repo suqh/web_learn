@@ -1,0 +1,50 @@
+<!--pages/main/main.wxml-->
+<view>-------------wx:if------------</view>
+<block wx:if="{{length > 5}}">
+<view>1</view>
+<view>1</view>
+<view>1</view>
+</block>
+<view wx:elif="{{length > 3}}">2</view>
+<view wx:else>3</view>
+
+<view>-------------hidden------------</view>
+
+<view wx:if="{{flag}}">被wx:if控制的区域</view>
+<view hidden="{{!flag}}">通过hidden控制元素的显示与隐藏</view>
+
+<button bindtap="btnTap">Toggle</button>
+
+
+<view>-------------wx:for------------</view>
+<view wx:for="{{list}}" wx:key="index">索引是：{{index}},item项的值是：{{item}}</view>
+
+<view>--------手动指定索引和当前项的变量名-----</view>
+
+<view wx:for="{{list}}" wx:key="index" wx:for-index="idx" wx:for-item="itemName">索引是：{{idx}},item项的值是：{{itemName}}</view>
+
+<view>-------------wx:for------------</view>
+<block wx:for="{{[1,2,3]}}" wx:key="index">
+  <view>索引是：{{index}}</view>
+  <view>值是：{{item}}</view>
+</block>
+
+<view>-------------wx:key------------</view>
+<view>
+  <input value="{{name}}" bindinput="iptHandler"></input>
+  <button type="primary" bindtap="add">添加</button>
+</view>
+<view wx:for="{{list2}}" wx:key="id">
+<checkbox></checkbox>
+id: {{item.id}} --- name: {{item.name}}
+</view>
+
+<view>-------------wx:key------------</view>
+<view wx:for="{{list}}" wx:key="index">{{item}}</view>
+
+<view>-------------下拉刷新------------</view>
+<button type="primary" bindtap="btn2Handler">通过按钮触发下拉刷新</button>
+
+<view>--------上拉触底案例----------</view>
+<button type="primary" open-type="share" data-info="aaa">转发</button>
+<view wx:for="{{msglist}}" wx:key="*this" class="box">{{item}}</view>

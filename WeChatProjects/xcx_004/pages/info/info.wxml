@@ -1,0 +1,11 @@
+<!--pages/info/info.wxml-->
+<text>pages/info/info.wxml</text>
+<navigator url="/pages/home/home" open-type="switchTab">导航到Home页面</navigator>
+
+<navigator open-type="navigateBack" delta="1">后退</navigator>
+
+<button type="warn" bindtap="btn2Handler">通过编程式导航跳转到home页面</button>
+
+<button type="primary" bindtap="btnHandler3">通过编程式导航后退</button>
+
+<view>111</view>

@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/tabhome/tabhome",
+    "pages/tabmsg/tabmsg",
+    "pages/tabcontact/tabcontact",
+    "pages/main/main",
+    "pages/home/home",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#2b4b6b",
+    "navigationBarTitleText": "web前端开发",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#eee",
+    "onReachBottomDistance": 100
+  },
+  "tabBar": {
+    "list": [
+    {
+      "pagePath": "pages/tabhome/tabhome",
+      "text": "首页",
+      "iconPath": "/assets/images/home.png",
+      "selectedIconPath": "/assets/images/home-active.png"
+    },
+    {
+      "pagePath": "pages/tabmsg/tabmsg",
+      "text": "消息页",
+      "iconPath": "/assets/images/message.png",
+      "selectedIconPath": "/assets/images/message-active.png"
+    },
+    {
+      "pagePath": "pages/tabcontact/tabcontact",
+      "text": "联系我们",
+      "iconPath": "/assets/images/contact.png",
+      "selectedIconPath": "/assets/images/contact-active.png"
+    }]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
