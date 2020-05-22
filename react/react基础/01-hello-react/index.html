@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01-react基本使用</title>
+</head>
+<body>
+    <div id="root"></div>
+    <!-- 1 引入js文件 -->
+    <script src="./node_modules/react/umd/react.development.js"></script>
+    <script src="./node_modules/react-dom/umd/react-dom.development.js"></script>
+
+    <script>
+        // 2 创建react 元素
+        // 参数一：元素名称
+        // 参数二：元素属性
+        // 第三个及其以后的参数
+        const title = React.createElement('p', { title: '我是标题', id: 'p1'}, 'Hello React', React.createElement('span', null, '我是span节点'))
+
+        // 3 渲染react元素
+        // 参数一：要渲染的react元素
+        // 参数二：挂载点
+        ReactDOM.render(title, document.getElementById('root'))
+    </script>
+</body>
+</html>
