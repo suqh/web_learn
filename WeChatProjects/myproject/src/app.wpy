@@ -34,7 +34,6 @@ export default class extends wepy.app {
   constructor () {
     super()
     this.use('requestfix')
-    this.use('promisify') //添加此行代码，即可启用async 和 await
   }
 
   onLaunch() {

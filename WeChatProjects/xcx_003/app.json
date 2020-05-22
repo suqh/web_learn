@@ -21,7 +21,7 @@
       "pagePath": "pages/home/home",
       "text": "home"
     }],
-    "position": "top"
+    "position": "bottom"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
