@@ -1,0 +1,258 @@
+<style lang="less">
+
+</style>
+
+<script>
+import wepy from 'wepy'
+import 'wepy-async-function'
+import '@/baseAPI.js'
+
+export default class extends wepy.app {
+  config = {
+    pages: [
+      'pages/tabs/home',
+      'pages/tabs/cates',
+      'pages/tabs/search',
+      'pages/tabs/cart',
+      'pages/tabs/me',
+      // 商品详情页面
+      'pages/goods_detail/main',
+      // 商品列表页面
+      'pages/goods_list',
+      // 确认订单页面
+      'pages/order',
+      // 订单列表页面
+      'pages/orderlist'
+    ],
+    window: {
+      backgroundTextStyle: 'dark',
+      navigationBarBackgroundColor: '#d81e06',
+      navigationBarTitleText: '惠优购',
+      navigationBarTextStyle: 'white'
+    },
+    tabBar: {
+      // 所有 tabBar 节点的配置数组
+      list: [
+        {
+          // 页面路径
+          pagePath: 'pages/tabs/home',
+          // 显示的文本
+          text: '首页',
+          // 默认图标路径
+          iconPath: '/assets/icons/home.png',
+          // 选中之后的图标路径
+          selectedIconPath: '/assets/icons/home-active.png'
+        },
+        {
+          pagePath: 'pages/tabs/cates',
+          text: '分类',
+          iconPath: '/assets/icons/cates.png',
+          selectedIconPath: '/assets/icons/cates-active.png'
+        },
+        {
+          pagePath: 'pages/tabs/search',
+          text: '搜索',
+          iconPath: '/assets/icons/search.png',
+          selectedIconPath: '/assets/icons/search-active.png'
+        },
+        {
+          pagePath: 'pages/tabs/cart',
+          text: '购物车',
+          iconPath: '/assets/icons/cart.png',
+          selectedIconPath: '/assets/icons/cart-active.png'
+        },
+        {
+          pagePath: 'pages/tabs/me',
+          text: '我的',
+          iconPath: '/assets/icons/my.png',
+          selectedIconPath: '/assets/icons/my-active.png'
+        }
+      ],
+      // 选中的文本颜色
+      selectedColor: '#d81e06'
+    },
+    // 引用并注册全局组件
+    'usingComponents': {
+      // 徽章组件
+      'van-badge': './assets/vant/badge/index',
+      'van-badge-group': './assets/vant/badge-group/index',
+      // 布局相关的组件
+      'van-row': './assets/vant/row/index',
+      'van-col': './assets/vant/col/index',
+      // 搜索框组件
+      'van-search': './assets/vant/search/index',
+      // 单元格组件
+      'van-cell': './assets/vant/cell/index',
+      'van-cell-group': './assets/vant/cell-group/index',
+      // 图标
+      'van-icon': './assets/vant/icon/index',
+      // 标签
+      'van-tag': './assets/vant/tag/index',
+      // 商品卡片组件
+      'van-card': './assets/vant/card/index',
+      // tab标签页
+      'van-tab': './assets/vant/tab/index',
+      'van-tabs': './assets/vant/tabs/index',
+      // 把 HTML 代码转换为 WXML 代码的插件
+      wxparse: './assets/wxparse/wxparse',
+      'van-goods-action': './assets/vant/goods-action/index',
+      'van-goods-action-icon': './assets/vant/goods-action-icon/index',
+      'van-goods-action-button': './assets/vant/goods-action-button/index',
+      // stepper 步进器
+      'van-stepper': './assets/vant/stepper/index',
+      // 复选框
+      'van-checkbox': './assets/vant/checkbox/index',
+      // 滑动单元格
+      'van-swipe-cell': './assets/vant/swipe-cell/index',
+      // 提交订单
+      'van-submit-bar': './assets/vant/submit-bar/index',
+      // 按钮组件
+      'van-button': './assets/vant/button/index',
+      // panel面板组件
+      'van-panel': './assets/vant/panel/index'
+    }
+  }
+
+  // 专门存储全局共享的数据
+  // 只需要通过 this.$parent.globalData 就可以拿到这个全局共享的数据对象
+  globalData = {
+    // 全局的购物车列表
+    cart: [],
+    // 当前购物车中已经勾选的商品数量
+    total: 0
+  }
+
+  // 把商品，添加到购物车列表中
+  addGoodsToCart(goods) {
+    const i = this.globalData.cart.findIndex(x => x.id === goods.goods_id)
+    if (i !== -1) {
+      this.globalData.cart[i].count++
+      this.saveCartToStorage()
+      return
+    }
+    // 梳理出来的商品信息对象
+    const info = {
+      // 商品id
+      id: goods.goods_id,
+      // 名称
+      name: goods.goods_name,
+      // 图片
+      pic: goods.goods_small_logo,
+      // 价格
+      price: goods.goods_price,
+      // 数量
+      count: 1,
+      // 是否默认被选中
+      isCheck: true
+    }
+    // 将整理出来的商品信息对象，存储到购物车列表中
+    this.globalData.cart.push(info)
+    this.saveCartToStorage()
+  }
+
+  // 更新商品的数量
+  updateGoodsCount(id, count) {
+    const i = this.globalData.cart.findIndex(x => x.id === id)
+    if (i !== -1) {
+      // 根据索引值，获取到对应的那个商品，
+      // 然后更新数量
+      this.globalData.cart[i].count = count
+      // 把更新后的购物车数据，立即存储到Storage中
+      this.saveCartToStorage()
+    }
+  }
+
+  // 根据id 删除对应的商品
+  removeGoodsById(id) {
+    const i = this.globalData.cart.findIndex(x => x.id === id)
+    if (i !== -1) {
+      this.globalData.cart.splice(i, 1)
+      this.saveCartToStorage()
+    }
+  }
+
+  // 更新购物车中没见商品的选中状态
+  updateAllGoodsStauts(status) {
+    this.globalData.cart.forEach(x => {
+      x.isCheck = status
+    })
+    this.saveCartToStorage()
+  }
+
+  updateGoodsStatus(id, status) {
+    const i = this.globalData.cart.findIndex(x => x.id === id)
+    if (i !== -1) {
+      this.globalData.cart[i].isCheck = status
+      this.saveCartToStorage()
+    }
+  }
+
+  // 将购物车中的商品数据，持久化保存到本地
+  saveCartToStorage() {
+    wepy.setStorageSync('cart', this.globalData.cart)
+    this.renderCartBadge()
+  }
+
+  // 渲染购物车的徽章
+  async renderCartBadge() {
+    let c = 0
+    this.globalData.cart.forEach(x => {
+      if (x.isCheck) {
+        c += x.count
+      }
+    })
+    // 更新全局的购物车商品数量
+    this.globalData.total = c
+    const res = await wepy.setTabBarBadge({
+      index: 3,
+      text: c + ''
+    }).catch(err => err)
+    console.log(res)
+  }
+
+  constructor () {
+    super()
+    this.use('requestfix')
+    // 通过这一行代码，可以为异步的API,开启Promise功能，这样，异步API调用的结果，返回值是Promise对象，添加此行代码，即可启用async 和 await
+    this.use('promisify')
+    // 拦截器
+    this.intercept('request', {
+      // 发出请求时的回调函数
+      config (p) {
+        // 显示loading效果
+        wepy.showLoading({
+          title: '数据加载中...'
+        })
+        p.header = {
+          Authorization: wepy.getStorageSync('token')
+        }
+        console.log(p)
+        // 必须返回OBJECT参数对象，否则无法发送请求到服务端
+        return p
+      },
+      // 请求成功后的回调函数
+      success (p) {
+        // 必须返回响应数据对象，否则后续无法对响应数据进行处理
+        return p
+      },
+      // 请求失败后的回调函数
+      fail (p) {
+        // 必须返回响应数据对象，否则后续无法对响应数据进行处理
+        return p
+      },
+      // 请求完成时的回调函数(请求成功或失败都会被执行)
+      complete (p) {
+        // 隐藏loading效果
+        wepy.hideLoading()
+      }
+    })
+  }
+
+  onLaunch() {
+    console.log('小程序启动了')
+    this.globalData.cart = wepy.getStorageSync('cart') || []
+    this.renderCartBadge()
+  }
+}
+
+</script>

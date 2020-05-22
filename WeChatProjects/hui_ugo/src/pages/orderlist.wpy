@@ -1,0 +1,44 @@
+<template>
+    <view>
+      <van-tabs active="{{active}}" bind:change="tabChanged">
+        <van-tab title="全部">
+          <!-- repeat 组件并不是微信官方提供的，而是 WePY 框架提供的 -->
+          <repeat for="{{allOrderList}}" key="index">
+            <order-item :order="item"></order-item>
+          </repeat>
+        </van-tab>
+        <van-tab title="代付款">
+          <repeat for="{{waitOrderList}}" key="index">
+            <order-item :order="item"></order-item>
+          </repeat>
+        </van-tab>
+        <van-tab title="已付款">
+          <repeat for="{{finishOrderList}}" key="index">
+            <order-item :order="item"></order-item>
+          </repeat>
+        </van-tab>
+      </van-tabs>
+    </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import mix from '@/mixins/orderlist.js'
+// 1、导入自定义的组件
+import orderItem from '@/components/orderItem'
+export default class extends wepy.page {
+  config = {
+    navigationBarTitleText: '订单列表'
+  }
+  // 注册自定义组件
+  components = {
+    'order-item': orderItem
+  }
+  mixins = [mix]
+}
+
+</script>
+
+<style lang="less">
+
+</style>
