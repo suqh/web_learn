@@ -34,29 +34,18 @@ function withMouse(WrappedComponent) {
     }
 
     render() {
-      console.log("mouse:", this.props)
-      return <WrappedComponent {...this.state}{...this.props}></WrappedComponent>
+      return <WrappedComponent {...this.state}></WrappedComponent>
     }
   }
-
-  // 设置displayName
-  Mouse.displayName = `WithMouse${getDisplayName(WrappedComponent)}`
-
   return Mouse
 }
 
-function getDisplayName(WrappedComponent) {
-  return WrappedComponent.displayName || WrappedComponent.name || 'Component'
-}
-
 // 用来测试高阶组件
-const Position = props => {
-  console.log("position",props)
-  return (
+const Position = props => (
   <p>
     鼠标当前位置： (x: {props.x}, y:{props.y})
   </p>
-)}
+)
 
 // 猫抓老鼠的组件
 const Cat = props => (
@@ -79,7 +68,7 @@ class App extends React.Component {
       <div>
         <h1>高阶组件</h1>
         {/* 渲染增强后的组件 */}
-        <MousePosition a="1"></MousePosition>
+        <MousePosition></MousePosition>
         <MouseCat></MouseCat>
       </div>
     )
